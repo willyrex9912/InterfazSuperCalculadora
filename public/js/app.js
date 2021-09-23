@@ -13,3 +13,19 @@ function operar(){
         alert("Elevando a una potencia");
     }
 }
+
+function enviarPeticionAPI(opr1,opr2,opr){
+    let val1 = document.getElementById(opr1).value;
+    let val2 = document.getElementById(opr2).value;
+    let val = document.getElementById(opr).value;
+    var request = new XMLHttpRequest();
+    request.open('POST','/calc');
+    request.setRequestHeader('Content-Type','application/json');
+    request.send(JSON.stringify({opr:val,opr1:val1,opr2:val2}));
+    request.addEventListener('load',()=>{
+        alert('Peticion realizada.');
+    });
+    request.addEventListener('error',()=>{
+        alert('Error al realizar peticion.');
+    });
+}
