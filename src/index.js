@@ -19,6 +19,7 @@ app.get( "*", ( request, response ) => {
 } );
 
 app.post("/calc",(request,response)=>{
+    console.log("Api works");
     console.log(request.body);
     response.send("Api works");
 });
